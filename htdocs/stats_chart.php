@@ -36,11 +36,11 @@ Auth::checkAuthentication(APP_COOKIE);
 error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
 
 // check to see if the TTF file is available or not
-$ttf_font = TTF_DIR . "verdana.ttf";
+$ttf_font = TTF_DIR . "iwona.ttf";
 if (!file_exists($ttf_font)) {
     $font = FF_FONT1;
 } else {
-    $font = FF_VERDANA;
+    $font = FF_IWONA;
 }
 
 if (isset($_REQUEST['hide_closed'])) {
