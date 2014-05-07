@@ -34,13 +34,13 @@ if (!file_exists(dirname(__FILE__) . '/config/config.php') || !filesize(dirname(
 }
 
 // setup change some PHP settings
-ini_set('memory_limit', '512M');
+if(defined('APP_MEMORY_LIMIT')) ini_set('memory_limit', APP_MEMORY_LIMIT);
 
 // prevent session from messing up the browser cache
 ini_set('session.cache_limiter', 'nocache');
 
 define('APP_URL', 'https://launchpad.net/eventum/');
-define('APP_VERSION', '2.4.0');
+define('APP_VERSION', '2.4.0-innoDB');
 
 // define base path
 define('APP_PATH', realpath(dirname(__FILE__)));
@@ -187,6 +187,9 @@ if (!defined('APP_DEFAULT_TIMEZONE')) {
 }
 if (!defined('APP_DEFAULT_WEEKDAY')) {
     define('APP_DEFAULT_WEEKDAY', 0);
+}
+if (!defined('APP_DATE_FORMATTING_STYLE')) {
+    define('APP_DATE_FORMATTING_STYLE', '%a, %d %b %Y, %H:%M:%S (%Z)');
 }
 
 // Number of failed attempts before Back-Off locking kicks in.
