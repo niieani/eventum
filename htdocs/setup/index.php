@@ -480,12 +480,8 @@ $private_key = "' . md5(microtime()) . '";
         $_POST['db_password'] = $_POST['eventum_password'];
     }
 
-    // disable the full-text search feature for certain mysql server users
-    $stmt = "SELECT VERSION();";
-    $res = mysql_query($stmt, $conn);
-    $mysql_version = mysql_result($res, 0, 0);
-    preg_match('/(\d{1,2}\.\d{1,2}\.\d{1,2})/', $mysql_version, $matches);
-    $enable_fulltext = $matches[1] > '4.0.23';
+    // disable the full-text since we use INNODB
+    $enable_fulltext = false;
 
     $replace = array(
         "'%{APP_SQL_DBHOST}%'" => e($_POST['db_hostname']),
