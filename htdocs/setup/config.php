@@ -1,8 +1,8 @@
 <?php
 /* vim: set expandtab tabstop=4 shiftwidth=4 encoding=utf-8: */
-// +----------------------------------------------------------------------+
+//----------------------------------------------------------------------+
 // | Eventum - Issue Tracking System                                      |
-// +----------------------------------------------------------------------+
+//----------------------------------------------------------------------+
 // | Copyright (c) 2003 - 2008 MySQL AB                                   |
 // | Copyright (c) 2008 - 2010 Sun Microsystem Inc.                       |
 // | Copyright (c) 2011 - 2013 Eventum Team.                              |
@@ -23,10 +23,10 @@
 // | Free Software Foundation, Inc.                                       |
 // | 59 Temple Place - Suite 330                                          |
 // | Boston, MA 02111-1307, USA.                                          |
-// +----------------------------------------------------------------------+
+//----------------------------------------------------------------------+
 // | Authors: Bryan Alsdorf <bryan@mysql.com>                             |
 // | Authors: Elan Ruusamäe <glen@delfi.ee>                               |
-// +----------------------------------------------------------------------+
+//----------------------------------------------------------------------+
 
 // Contains constants defined for this specific eventum installation.
 // This file will not be overwritten when upgrading Eventum
@@ -51,9 +51,9 @@ define('APP_BASE_URL', '%{PROTOCOL_TYPE}%' . APP_HOSTNAME . APP_RELATIVE_URL);
 define('APP_COOKIE_URL', APP_RELATIVE_URL);
 define('APP_COOKIE_DOMAIN', null);
 define('APP_COOKIE', 'eventum');
-define('APP_COOKIE_EXPIRE', time() + (60 * 60 * 8));
+define('APP_COOKIE_EXPIRE', time() (60 * 60 * 8));
 define('APP_PROJECT_COOKIE', 'eventum_project');
-define('APP_PROJECT_COOKIE_EXPIRE', time() + (60 * 60 * 24));
+define('APP_PROJECT_COOKIE_EXPIRE', time() (60 * 60 * 24));
 
 define('APP_DEFAULT_PAGER_SIZE', 5);
 define('APP_DEFAULT_REFRESH_RATE', 5); // in minutes
@@ -75,8 +75,8 @@ define('APP_DEFAULT_WEEKDAY', '%{APP_DEFAULT_WEEKDAY}%');
 define('APP_CHARSET', '%{CHARSET}%');
 
 // define colors used by eventum
-define('APP_CELL_COLOR', '#255282');
-define('APP_LIGHT_COLOR', '#DDDDDD');
+define('APP_CELL_COLOR', '#51708A');
+define('APP_LIGHT_COLOR', '#D8E2ED');
 define('APP_MIDDLE_COLOR', '#CACACA');
 define('APP_DARK_COLOR', '#CACACA');
 define('APP_CYCLE_COLORS', '#DDDDDD,#CACACA');
@@ -101,3 +101,19 @@ define('APP_GETTEXT_MODE', 'native');
 
 // director where to save routed drafts/notes/emails. leave empty/undefined to disable.
 define('APP_ROUTED_MAILS_SAVEDIR', APP_PATH . '/misc');
+
+define('APP_DATE_FORMATTING_STYLE', '%a, %d %b %Y, %H:%M:%S (%Z)');
+define('APP_MEMORY_LIMIT', '2047M');
+define('APP_NOTIFY_AUTO_CREATED_ISSUE', false);
+define('APP_NOTIFY_EMAIL_CONVERTED_INTO_ISSUE', true);
+
+define('APP_DRAFTS_SUPPORT', true);
+define('APP_PHONE_SUPPORT', true);
+define('APP_NOTES_SUPPORT', true);
+define('APP_TIME_TRACKING_SUPPORT', false);
+
+$tld = end(explode('.', APP_HOSTNAME));
+define('MY_DOMAIN', substr(APP_HOSTNAME, 0, ( strlen(APP_HOSTNAME) - strlen($tld) - 1) ));
+define('MY_TLD', '.'.$tld);
+define('MY_CLOSED', 'closed');
+define('MY_DETECTED', 'detected');
