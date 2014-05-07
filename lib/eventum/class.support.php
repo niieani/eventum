@@ -923,7 +923,7 @@ class Support
         }
         // check whether we need to create a new issue or not
         if (($info['ema_issue_auto_creation'] == 'enabled') && ($should_create_issue) && (!Notification::isBounceMessage($sender_email))) {
-            $options = Email_Account::getIssueAutoCreationOptions($info['ema_id']);
+            $options = $info['ema_issue_auto_creation_options'];
             Auth::createFakeCookie(APP_SYSTEM_USER_ID, $info['ema_prj_id']);
             $issue_id = Issue::createFromEmail($info['ema_prj_id'], APP_SYSTEM_USER_ID,
                     $from, Mime_Helper::fixEncoding($subject), $message_body, @$options['category'],
